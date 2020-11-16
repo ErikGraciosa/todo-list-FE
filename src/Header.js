@@ -9,6 +9,7 @@ export default class Header extends Component {
                 <NavLink to="/">Home</NavLink><br/>
                 <NavLink to="/ToDoList">ToDoList</NavLink><br/>
                 <NavLink to="/AuthPage">LogIn</NavLink><br/>
+                <NavLink to="/SignUp">SignUp</NavLink><br/>
                 <hr/>
             </div>
         )

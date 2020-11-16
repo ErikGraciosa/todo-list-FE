@@ -4,6 +4,7 @@ export default class AuthPage extends Component {
     render() {
         return (
             <div>
+                <h2>This is the Log In Page</h2>
                 <form>
                     <label>Enter Email
                         <input></input>
@@ -11,7 +12,7 @@ export default class AuthPage extends Component {
                     <label>Enter Password
                         <input></input>
                     </label>
-                    <button>Submit Form</button>
+                    <button>Sign In</button>
                 </form>
             </div>
         )
