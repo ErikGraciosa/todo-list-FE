@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import fetch from 'superagent';
-
+import './ToDoList.css';
 
 export default class ToDoList extends Component {
     state = {
@@ -24,6 +24,14 @@ export default class ToDoList extends Component {
             Authorization: this.props.token,
         });
         await this.getRequest();
+    }
+
+    markCompleted = async (todoId) => {
+        await fetch.put(`https://shielded-chamber-86620.herokuapp.com/api/todos/${todoId}`)
+        .set({
+            Authorization: this.props.token,
+        });
+        await this.getRequest();        
     }
 
     getRequest = async () => {
@@ -53,10 +61,10 @@ export default class ToDoList extends Component {
                 <div className='tasklist'>
                     {
                         this.state.todoList.map((task, index) => 
-                            <div className='singletask'>{index + 1}.
+                            <div className='singletask'>{index + 1})
                                 <div>{task.todo}</div>
-                                <div>{task.completed}</div>
-                                <button>Mark Completed</button>
+                                <div> Done? {task.completed ? 'Yes' : 'No'}</div>
+                                <button className='completed' onClick={() => this.markCompleted(task.id)}>Mark Completed</button>
                             </div>
                         )
                     }

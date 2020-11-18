@@ -13,6 +13,7 @@ import AuthPage from './AuthPage.js';
 import PrivateRoute from './PrivateRoute.js';
 
 
+
 export default class App extends Component {
 
     state = {
@@ -28,10 +29,27 @@ export default class App extends Component {
         })
     }
 
+    logOut = () => {
+        //clear local storage
+        localStorage.setItem('TOKEN', '');
+        localStorage.setItem('USERNAME', '');
+
+        this.setState({
+            token: ''
+        })
+    }
+
+    
+
     render() {
         return (
             <div>
                 <Router>
+                    {
+                        <div>
+                            <button onClick={this.logOut}>SignOut</button>
+                        </div>
+                    }
                     <Header />
                     <Switch>
                     <Route 
@@ -53,7 +71,7 @@ export default class App extends Component {
                     <Route 
                         path="/AuthPage" 
                         exact
-                        render={(routerProps) => <AuthPage {...routerProps} />} 
+                        render={(routerProps) => <AuthPage {...routerProps} updateToken={this.updateToken} />} 
                     />                    
                     </Switch>
                 </Router>

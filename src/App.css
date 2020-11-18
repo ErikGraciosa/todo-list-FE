@@ -37,7 +37,6 @@
 .singletask {
   display: inline-flex;
   flex-direction: row;
-  border: black solid 1px;
 }
 
 
