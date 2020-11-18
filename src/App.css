@@ -28,8 +28,7 @@
   color: #61dafb;
 }
 
-
-.todolist {
+.todolist, .tasklist {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -38,7 +37,6 @@
 .singletask {
   display: inline-flex;
   flex-direction: row;
-  border: black solid 1px;
 }
 
 
